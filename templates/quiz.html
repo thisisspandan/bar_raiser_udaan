@@ -1,0 +1,22 @@
+<html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/bootstrap.css') }}">
+<div class="table-responsive">
+    <table class="table table-sm table-borderless mb-0">
+        <thead class="thead-dark">
+            <tr>
+                <th>S/N</th>
+                <th>Quiz Name {{ quiz["name"] }} </th>
+                <th>Description: {{ quiz["description"] }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in quiz["questions"] %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ question.name }}</td>
+                <td>{{ question.options }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
